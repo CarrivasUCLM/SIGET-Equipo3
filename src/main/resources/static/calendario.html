@@ -111,6 +111,7 @@
 					</div>
 				</form>
 			</div>
+			<!--  
 			<div class="overlay" id="overlay">
 				<div class="popup" id="popup">
 					<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><em class="fas fa-times"></em></a>
@@ -120,19 +121,77 @@
 							<input type="text" id="tituloConvocar" placeholder="Titulo">
 							<input type="text" id="descripcionConvocar" placeholder="Descripción">
 							<input type="date" id="fechaconvocar" name="trip-start" value="2020-07-22" min="2018-01-01"> 
-							<input type="time" id="horaconvocar" name="appt" min="08:00" max="21:00" required>
-							<p>Selecciona los asistentes:</p>
-							<p>(Pulse la tecla Ctrl para seleccionar varios)</p>
+							
+							 <div data-role = "fieldcontain" class = "ui-hide-label" style="float:left">
+							      <label for="horaFin">Hora fin</label>
+							      <input type="time" id="horaconvocar" name="appt" min="08:00" max="21:00" required>
+							 </div>
+							  <div data-role ="fieldcontain" class= "ui-hide-label" style="float:right">
+							         <label for="horaFin">Hora fin</label>
+							      <input type="time" id="horaconvocarFin" name="appt" min="08:00" max="21:00" required>
+							   </div>
+							   
+							<div class="contenedor-inputs2">
+							  <p>Selecciona los asistentes:</p>
+							     <p>(Pulse la tecla Ctrl para seleccionar varios)</p>
 							<p>
 								<select name="asistentesConvocar[]" id = "arrayAsistentes" multiple>
 								</select>
 							</p>
+							</div>
 						</div>
 						<input type="submit" class="btn-submit" onclick="guardarReunion()" value="GUARDAR">
 					</form>
 				</div>
 			</div>
+			-->
+			
+			<div class="overlay" id="overlay">
+                <div class="popup" id="popup">
+                    <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><em class="fas fa-times"></em></a>
+                    <h3>CONVOCAR REUNIÓN</h3>
+                    <form action="">
+                    <div class="contenedor-inputs">
+                         <div class="form-group row row-md-1">
+                            <input type="text" id="tituloConvocar" placeholder="Titulo">
+                            <input type="text" id="descripcionConvocar" placeholder="Descripción">
+                            <input type="date" id="fechaconvocar" name="trip-start" value="2020-07-22" min="2018-01-01"> 
+                            </div>
+                           
+                            <div class="form-group row row-md-6">
+                        <label class="col-sm-2 col-form-label">Hora de inicio: </label>
+                        <div class="col-sm-3">
+                            <input type="time" class="form-control" id="horaconvocar"
+                                name="appt" min="08:00" max="21:00" required>
+                        </div>
+                        <label class="col-sm-1 col-form-label">Hora de fin:</label>
+                        <div class="col-sm-3">
+                            <input type="time" class="form-control" id="horaconvocarFin"
+                                required="true" name="appt" min="08:00" max="21:00" required>
+                        </div>
+                        </div>
+ 
+                            <div class="form-group row row-md-3">
+                                 <p>Selecciona los asistentes:</p>
+                                 <p>(Pulse la tecla Ctrl para seleccionar varios)</p>
+                            <p>
+                                <select name="asistentesConvocar[]" id = "arrayAsistentes" multiple>
+                                </select>
+                            </p>
+                            </div>
+                        </div>
+                       <input type="submit" class="btn-submit" onclick="guardarReunion()" value="GUARDAR">    
+                            </div>
+                               
+                           
+                      </div>
+                      
+			</form>
+                </div>
+            </div>
 		</div>
+		
+		
         <script type="text/javascript" src="js/popups.js"></script>
         <script type="text/javascript" src="js/funcionesCalendario.js"></script>
 		<script type="text/javascript" src="js/calendario.js"></script>
