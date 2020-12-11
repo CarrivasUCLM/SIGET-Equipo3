@@ -84,7 +84,7 @@ public class ConvocarReunionStepDefinitions extends SpringIntegrationTest{
 	@When("hora es {string}")
 	public void hora_es(String hora) throws Throwable {
 		try{
-			r.setHora(hora);
+			r.setHoraIni(hora);
 		}catch (Exception e) {
 			fail("Se ha lanzado una excepcion inesperada: " + e);
 		}

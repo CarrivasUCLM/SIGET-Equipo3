@@ -69,7 +69,7 @@ public class ModificarReunionStepDefinitions extends SpringIntegrationTest {
 	public void cambio_la_hora_a(String string) {
 		if (!string.equals("")) {
 			try {
-				reu.setHora(string);
+				reu.setHoraIni(string);
 			} catch (Exception e) {
 			}
 		}
@@ -125,7 +125,7 @@ public class ModificarReunionStepDefinitions extends SpringIntegrationTest {
 	@Then("la nueva hora sera {string}")
 	public void la_nueva_hora_sera(String string) {
 		if (!string.equals("")) {
-			assertEquals(reu.getHora(), string);
+			assertEquals(reu.getHoraIni(), string);
 		}
 	}
 

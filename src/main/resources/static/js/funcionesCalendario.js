@@ -320,7 +320,8 @@ function guardarReunion(){
 	var titulo = document.getElementById("tituloConvocar");
 	var descripcion = document.getElementById("descripcionConvocar");
 	var fecha = document.getElementById("fechaconvocar");
-	var hora = document.getElementById("horaconvocar");
+	var horaInicio = document.getElementById("horaconvocar");
+	var horaFin = document.getElementById("horaconvocarFin");
 	var select = document.getElementById("arrayAsistentes");
 	for ( var i = 0; i < select.selectedOptions.length; i++) {
 		asistentes[i] = select.selectedOptions[i].value;
@@ -329,7 +330,8 @@ function guardarReunion(){
         "type" : "ConvocarReunion",
         "titulo" : titulo.value,
         "descripcion" : descripcion.value,
-        "hora" : hora.value,
+        "horaInicio" : horaInicio.value,
+        "horaFin" : horaFin.value,
         "fecha" : fecha.value,
         "asistentes" : asistentes
     };

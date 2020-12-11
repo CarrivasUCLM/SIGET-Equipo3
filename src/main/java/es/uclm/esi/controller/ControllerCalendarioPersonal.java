@@ -88,7 +88,8 @@ public class ControllerCalendarioPersonal {
 					jsoreunion.put("identificador", reunion.getId());
 					jsoreunion.put("titulo", reunion.getTitulo());
 					jsoreunion.put("id", contadorReuniones);
-					jsoreunion.put("hora", reunion.getHora());
+					jsoreunion.put("hora", reunion.getHoraIni());
+					jsoreunion.put("hora", reunion.getHoraFin());
 					jsoreunion.put("asistentes", asistentes);
 					jsoreunion.put("descripcion", reunion.getDescripcion());
 					jsa.put(jsoreunion);

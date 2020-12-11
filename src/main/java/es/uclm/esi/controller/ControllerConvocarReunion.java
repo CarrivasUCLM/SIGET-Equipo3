@@ -87,7 +87,8 @@ public class ControllerConvocarReunion {
 		reunion.setMes(mes);
 		reunion.setAno(ano);
 		
-		reunion.setHora(reu.getString("hora"));
+		reunion.setHoraIni(reu.getString("horaInicio"));
+		reunion.setHoraFin(reu.getString("horaFin"));
 		reunion.setDescripcion(reu.getString("descripcion"));
 		
 		if (filtroRestricciones(reunion)) {
@@ -137,9 +138,12 @@ public class ControllerConvocarReunion {
 		if(reunion.getAno() < 2020) {
 			ok=false;
 		}
-		if(reunion.getHora().equals("")) {
+		if(reunion.getHoraIni().equals("")) {
 			ok=false;
 		}
+		if(reunion.getHoraFin().equals("")) {
+         ok=false;
+     }
 		if(reunion.getDescripcion().equals("")) {
 			ok=false;
 		}

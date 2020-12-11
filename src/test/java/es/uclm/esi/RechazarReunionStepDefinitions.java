@@ -59,7 +59,8 @@ public class RechazarReunionStepDefinitions extends SpringIntegrationTest {
   reunion.setDia(20);
   reunion.setMes(12);
   reunion.setAno(2020);
-  reunion.setHora("11:00");
+  reunion.setHoraIni("11:00");
+  reunion.setHoraFin("12:00");
   reunion.setDescripcion("TestCancelarReunion");
   asistentes.add(new Asistente("manu", "pendiente"));
   asistentes.add(new Asistente("jaime", "pendiente"));
