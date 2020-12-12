@@ -1,3 +1,78 @@
+/*
+.btn-convocar {
+	padding: 0 20px;
+	margin: 10px;
+	height: 40px;
+	line-height: 40px;
+	border: none;
+	color: #fff;
+	background: #5E7DE3;
+	border-radius: 3px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	cursor: pointer;
+	transition: .3s ease all;
+	cursor: pointer;
+}
+
+.btn-convocar:hover {
+	background: rgba(94,125,227, .9);
+}
+
+.btn-modificar {
+	padding: 0 20px;
+	margin: 10px;
+	height: 40px;
+	line-height: 40px;
+	border: none;
+	color: #fff;
+	background: #5E7DE3;
+	border-radius: 3px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	cursor: pointer;
+	transition: .3s ease all;
+	cursor: pointer;
+}
+
+.btn-modificar:hover {
+	background: rgba(94,125,227, .9);
+}
+
+.btn-cancelar {
+	padding: 0 20px;
+	margin: 10px;
+	height: 40px;
+	line-height: 40px;
+	border: none;
+	color: #000000;
+	background: #5E7DE3;
+	border-radius: 3px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	cursor: pointer;
+	transition: .3s ease all;
+	cursor: pointer;
+}
+
+.btn-salir {
+	padding: 0 20px;
+	margin: 10px;
+	height: 40px;
+	line-height: 40px;
+	border: none;
+	color: #fff;
+	background: #5E7DE3;
+	border-radius: 3px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	cursor: pointer;
+	transition: .3s ease all;
+}
+
+.btn-salir:hover {
+	background: rgba(94,125,227, .9);
+}
 
 /* ------------------------- */
 /* POPUP */
@@ -105,6 +180,7 @@
 /* ------------------------- */
 /* ANIMACIONES */
 /* ------------------------- */
+
 .popup.active {	transform: scale(1); opacity: 1; }
 .popup.active h3 { animation: entradaTitulo .8s ease .5s forwards; }
 .popup.active h4 { animation: entradaSubtitulo .8s ease .5s forwards; }
@@ -121,7 +197,7 @@
 		opacity: 1;
 	}
 }
-
+/*
 @keyframes entradaSubtitulo {
 	from {
 		opacity: 0;
@@ -138,3 +214,4 @@
 	from { opacity: 0; }
 	to { opacity: 1; }
 }
+
