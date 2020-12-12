@@ -103,6 +103,7 @@ function detallesEnBlanco(){
 }
 
 function mostrarInfoReunion(idReunion,diaReunion){
+	var invitacionRespondida = false;
     var jsonMostrar = getDetallesReunionDiaC();
     
     identificador = jsonMostrar.reuniones[idReunion-1].identificador;
@@ -119,6 +120,21 @@ function mostrarInfoReunion(idReunion,diaReunion){
 	var strasistentes = "";
     for(var i = 0; i < jsonMostrar.reuniones[idReunion-1].asistentes.length; i++){
 		strasistentes+=jsonMostrar.reuniones[idReunion-1].asistentes[i].usuario+"\n";
+		if (jsonMostrar.reuniones[idReunion-1].asistentes[i].usuario == localStorage.rol) 
+			if(jsonMostrar.reuniones[idReunion-1].asistentes[i].estado == "Aceptado")
+				invitacionRespondida = true;
+    }
+    
+    if(invitacionRespondida){
+    	ocultarBoton("btn-aceptar");
+    	ocultarBoton("btn-rechazar");
+    	mostrarBoton("btn-modificar");
+    	mostrarBoton("btn-cancelar");
+    } else{
+    	mostrarBoton("btn-aceptar");
+    	mostrarBoton("btn-rechazar");
+    	ocultarBoton("btn-modificar");
+    	ocultarBoton("btn-cancelar");
     }
     
     var asistentes = document.getElementById("asistentes");
@@ -228,23 +244,26 @@ function reunionesMes(mesConcreto, anoConcreto){ //Recibirá las reuniones de un
 }
 
 function cancelar() {
-	var info = {
-		id : identificador
-	};
-	$.ajax({
-		url : '/reunion/cancelar',
-        async : false,
-        data : JSON.stringify(info),
-        type : "post",
-        headers: { 'Authorization': localStorage.getItem("jwt") },
-        contentType: 'application/json',
-        success : function(response) {
-        	recarga();
-        },
-        error : function(response) {
-            console.log('Se produjo un problema cancelando reunion');
-        }
-    });
+	var opcion = confirm("¿Estás seguro que no desea asisitir a esta reunión?");
+	if (opcion == true) {
+		var info = {
+			id : identificador
+		};
+		$.ajax({
+			url : '/reunion/cancelar',
+	        async : false,
+	        data : JSON.stringify(info),
+	        type : "post",
+	        headers: { 'Authorization': localStorage.getItem("jwt") },
+	        contentType: 'application/json',
+	        success : function(response) {
+	        	recarga();
+	        },
+	        error : function(response) {
+	            console.log('Se produjo un problema cancelando reunion');
+	        }
+	    });
+	}
 }
 
 function aceptarReunion() {
@@ -264,19 +283,24 @@ function aceptarReunion() {
 }
 
 function rechazarReunion() {
-    var info = {
-        id: identificador
-    }
-    $.ajax({
-		url : '/reunion/rechazar',
-        async : false,
-        data : JSON.stringify(info),
-        type : "post",
-        dataType: 'json',
-        headers: { 'Authorization': localStorage.getItem("jwt") },
-        contentType: 'application/json',
-        success : recarga()
-    });
+
+	var opcion = confirm("¿Estás seguro que no desea asisitir a esta reunión?");
+	
+	if (opcion == true) {
+	 var info = {
+		        id: identificador
+		    }
+		    $.ajax({
+				url : '/reunion/rechazar',
+		        async : false,
+		        data : JSON.stringify(info),
+		        type : "post",
+		        dataType: 'json',
+		        headers: { 'Authorization': localStorage.getItem("jwt") },
+		        contentType: 'application/json',
+		        success : recarga()
+		    });
+	} 
 }
 
 function getDetallesReunionDiaC(){
@@ -369,5 +393,12 @@ function cargar() {
 
     }
     $('#convocar').modal('show');
-    
+}
+
+function mostrarBoton(idBoton){
+	document.getElementById(idBoton).style.display = 'block';
+}
+
+function ocultarBoton(idBoton){
+	document.getElementById(idBoton).style.display = 'none';
 }
